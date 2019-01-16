@@ -1,27 +1,29 @@
+const webpack = require('webpack');
 const path = require('path');
-const webpack = require('webpack')
 
 module.exports = {
-    entry: './assets/js/app.js',
+    mode: 'development',
+    entry: { 'main': './assets/js/app.js' },
     output: {
         path: path.resolve(__dirname, 'wwwroot/assets/js'),
-        filename: 'bundle.js'
+        filename: 'bundle.js', 
+        publicPath: '/dist/'
     },
-    plugins: [
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery'
-        })
-    ], 
     module: {
-        rules: [{
-            test: /\.js?$/,
-            use: {
-                loader: 'babel-loader', options: {
-                    presets: ['babel-preset-es2015']
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-react', '@babel/preset-env']
+                    }
                 }
             }
-        }]
-    }
+        ]
+    },
+    plugins: [
+
+    ]
 };

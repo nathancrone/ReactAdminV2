@@ -1,3 +1,8 @@
-﻿require('./lib');
-document.getElementById("fillthis").innerHTML = getText();
-$('#fillthiswithjquery').html('Filled by Jquery!');
+﻿import React from 'react';
+import ReactDOM from 'react-dom';
+import Message from './lib';
+ReactDOM.render(
+    <Message />,
+    document.getElementById('root')
+);
+module.hot.accept();
