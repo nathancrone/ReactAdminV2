@@ -1,12 +1,13 @@
 const webpack = require('webpack');
 const path = require('path');
+const moduleList = ["react", "react-dom"];
 
 module.exports = {
     mode: 'development',
-    entry: { 'main': './assets/js/app.js' },
+    entry: { 'app': './assets/js/app.js' },
     output: {
         path: path.resolve(__dirname, 'wwwroot/assets/js'),
-        filename: 'bundle.js', 
+        filename: '[name].bundle.js', 
         publicPath: '/dist/'
     },
     module: {
@@ -22,6 +23,17 @@ module.exports = {
                 }
             }
         ]
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all',
+                }
+            }
+        }
     },
     plugins: [
 

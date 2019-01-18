@@ -5,4 +5,4 @@ ReactDOM.render(
     <Message />,
     document.getElementById('root')
 );
-module.hot.accept();
+//module.hot.accept();
