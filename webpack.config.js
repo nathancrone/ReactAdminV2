@@ -1,10 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
-const moduleList = ["react", "react-dom"];
 
 module.exports = {
     mode: 'development',
-    entry: { 'app': './assets/js/app.js' },
+    entry: { 'react_admin': './assets/js/react_admin/Main.js' },
     output: {
         path: path.resolve(__dirname, 'wwwroot/assets/js'),
         filename: '[name].bundle.js', 
@@ -28,7 +27,7 @@ module.exports = {
         splitChunks: {
             cacheGroups: {
                 vendor: {
-                    test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+                    test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom|prop-types)[\\/]/,
                     name: 'vendor',
                     chunks: 'all',
                 }
