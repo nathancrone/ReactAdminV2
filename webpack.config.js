@@ -27,7 +27,7 @@ module.exports = {
         splitChunks: {
             cacheGroups: {
                 vendor: {
-                    test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom|prop-types)[\\/]/,
+                    test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom|prop-types|redux|react-redux|react-router-redux)[\\/]/,
                     name: 'vendor',
                     chunks: 'all',
                 }
