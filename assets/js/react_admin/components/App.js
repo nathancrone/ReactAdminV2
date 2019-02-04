@@ -6,6 +6,7 @@ import Header from './common/Header';
 import HomePage from './home/HomePage';
 import AboutPage from './about/AboutPage';
 import CoursesPage from './course/CoursesPage';
+import CourseManagePage from './course/CourseManagePage';
 
 class App extends React.Component {
     render() {
@@ -16,6 +17,8 @@ class App extends React.Component {
                     <Switch>
                         <Route exact path="/" component={HomePage} />
                         <Route path="/courses" component={CoursesPage} />
+                        <Route path="/course" component={CourseManagePage} />
+                        <Route path="/course/:id" component={CourseManagePage} />
                         <Route path="/about" component={AboutPage} />
                     </Switch>
                 </div>
