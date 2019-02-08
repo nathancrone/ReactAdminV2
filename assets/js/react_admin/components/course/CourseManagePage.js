@@ -1,4 +1,5 @@
-﻿import React from 'react';
+﻿import toastr from 'toastr';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -37,11 +38,16 @@ class CourseManagePage extends React.Component {
         event.preventDefault();
         this.setState({saving: true});
         this.props.actions.saveCourse(this.state.course)
-            .then(() => this.redirect('/courses'));
+            .then(() => this.redirect('/courses'))
+            .catch(error => {
+                toastr.error(error);
+                this.setState({ saving: false });
+            });
     }
 
     redirect(location) {
         this.setState({ saving: false });
+        toastr.success('Course saved');
         this.props.history.push(location);
     }
 
@@ -72,8 +78,6 @@ function getCourseById(courses, id) {
 };
 
 function mapStateToProps(state, ownProps) {
-
-    console.log(ownProps);
 
     const courseId = ownProps.match.params.id;
 

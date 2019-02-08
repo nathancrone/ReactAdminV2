@@ -1,4 +1,6 @@
-﻿import '../../sass/styles.scss';
+﻿//import '../../sass/styles.scss';
+import '../../../node_modules/toastr/build/toastr.min.css';
+import '../../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 
 import React from 'react';
 import { render } from 'react-dom';
